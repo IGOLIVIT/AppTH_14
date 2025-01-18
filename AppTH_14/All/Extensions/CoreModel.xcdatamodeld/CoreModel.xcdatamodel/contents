@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="HabitModel" representedClassName="HabitModel" syncable="YES" codeGenerationType="class">
+        <attribute name="hDays" optional="YES" attributeType="String"/>
+        <attribute name="hGoal" optional="YES" attributeType="String"/>
+        <attribute name="hName" optional="YES" attributeType="String"/>
+        <attribute name="hNewDays" optional="YES" attributeType="String"/>
+        <attribute name="hType" optional="YES" attributeType="String"/>
+    </entity>
+</model>
