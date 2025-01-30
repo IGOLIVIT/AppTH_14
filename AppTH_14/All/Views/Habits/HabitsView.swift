@@ -181,6 +181,11 @@ struct HabitsView: View {
                                                         
                                                         viewModel.tdph += 1
                                                         
+                                                        if index.hDays == index.hGoal {
+                                                            
+                                                            viewModel.ph += 1
+                                                        }
+                                                        
                                                     }, label: {
                                                         
                                                         Text("Done")
@@ -227,6 +232,11 @@ struct HabitsView: View {
                                                         viewModel.fetchHabits()
                                                         
                                                         viewModel.tdnh += 1
+                                                        
+                                                        if index.hDays == index.hGoal {
+                                                            
+                                                            viewModel.nh += 1
+                                                        }
                                                         
                                                     }, label: {
                                                         

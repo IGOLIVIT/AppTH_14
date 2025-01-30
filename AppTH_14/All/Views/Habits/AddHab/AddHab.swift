@@ -140,17 +140,7 @@ struct AddHab: View {
                         .padding(.bottom, 80)
                         
                         Button(action: {
-                            
-                            if viewModel.curType == "Positive" {
-                                
-                                viewModel.ph += 1
-                                
-                            } else {
-                                
-                                viewModel.nh += 1
 
-                            }
-                            
                             viewModel.hDays = String("\(0)")
                             
                             viewModel.hType = viewModel.curType

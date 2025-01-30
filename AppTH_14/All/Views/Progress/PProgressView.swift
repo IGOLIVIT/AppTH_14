@@ -28,6 +28,19 @@ struct PProgressView: View {
                     
                     Spacer()
 
+                    Button(action: {
+                        
+                        withAnimation(.spring()) {
+                            
+                            viewModel.isReset = true
+                        }
+                        
+                    }, label: {
+                        
+                        Image(systemName: "arrow.clockwise")
+                            .foregroundColor(.white)
+                            .font(.system(size: 17, weight: .regular))
+                    })
                 }
                 .padding(.bottom, 25)
                 
@@ -202,6 +215,91 @@ struct PProgressView: View {
             }
             .padding()
         }
+        .overlay(
+            
+            ZStack {
+                
+                Color.black.opacity(viewModel.isReset ? 0.5 : 0)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        
+                        withAnimation(.spring()) {
+                            
+                            viewModel.isReset = false
+                        }
+                    }
+                
+                VStack(spacing: 15) {
+
+                    Text("Reset Statistics")
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical)
+                    
+                    Text("Are you sure you want to reset the statistics? This action cannot be undone.")
+                        .foregroundColor(.white)
+                        .font(.system(size: 15, weight: .regular))
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.center)
+
+                    Rectangle()
+                        .fill(.gray.opacity(0.2))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 1)
+                        .padding(.vertical, 7)
+                    
+                    HStack {
+                        
+                        Button(action: {
+                    
+                            withAnimation(.spring()) {
+                                
+                                viewModel.isReset = false
+                            }
+                            
+                        }, label: {
+                            
+                            Text("Cancel")
+                                .foregroundColor(.blue)
+                                .font(.system(size: 18, weight: .regular))
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 45)
+                            
+                        })
+                        
+                        Button(action: {
+                            
+                            viewModel.pp = String("0")
+                            viewModel.np = String("0")
+                            viewModel.tdnh = 0
+                            viewModel.tdph = 0
+                            viewModel.dmnh = 0
+                            viewModel.dmph = 0
+                            
+                            withAnimation(.spring()) {
+                                
+                                viewModel.isReset = false
+                            }
+                            
+                        }, label: {
+                            
+                            Text("Reset")
+                                .foregroundColor(.blue)
+                                .font(.system(size: 18, weight: .semibold))
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 45)
+                            
+                        })
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 20).fill(Color("bg2")))
+                .padding()
+                .offset(y: viewModel.isReset ? 0 : UIScreen.main.bounds.height)
+            }
+        )
     }
 }
 

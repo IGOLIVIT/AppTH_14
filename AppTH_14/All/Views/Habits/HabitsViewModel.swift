@@ -32,6 +32,7 @@ final class HabitsViewModel: ObservableObject {
     @Published var isAdd: Bool = false
     @Published var isDetail: Bool = false
     @Published var isDelete: Bool = false
+    @Published var isReset: Bool = false
 
     @Published var hName: String = ""
     @Published var hType: String = ""
